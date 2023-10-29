@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        width: 1200px;
+        height:1500px
+    }
+
+    #form1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #form {
+        width: 500px;
+        height: 700px;
+
+        padding: 20px;
+        color: white;
+        background-color: black;
+        background-size: cover;
+        border-radius: 15px;
+
+    }
+
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 50%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-group {
+        text-align: center;
+    }
+
+    .btn5 {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+    .result-container {
+        width: 460px;
+        padding-top: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        justify-content: space-between;
+
+    }
+
+    .result {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    #display {
+        width: 500px;
+        height: 750px;
+        background: url(./graham-ruttan-ScXGSS5a9BI-unsplash.jpg);
+        background-size: cover;
+        border-radius: 15px;
+        
+
+    }
+
+    #lable {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
+
+    #logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    #logo1 {
+        margin-top: -30px;
+        width: 100px;
+        height: auto;
+    }
+
+    textarea {
+        font-size: 16px;
+        font-family: 'Times New Roman', Times, serif;
+        padding-left: 10px;
+    }
+
+    input {
+        padding-left: 10px;
+    }
+
+    #logo3 {
+        margin-top: -0px;
+        width: 120px;
+        height: auto;
+    }
+
+    #logo2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #lable2 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    label {
+        color: black;
+        font-weight: 400px;
+    }
+</style>
+
+<body>
+    <div id="form1">
+        <div id="form">
+            <div id="logo"><img
+                    src="./kisspng-ambulance-computer-icons-star-of-life-clip-art-ambulance-pictures-5aaa960c778704.0099935115211289724896.png"
+                    alt="" id="logo1"></div>
+            <div id="lable">
+                <div>
+                    <label for="fn">Firstname</label>
+                    <input type="text" name="fn" id="fn" class="fn" placeholder="Enter your Frist Name">
+                </div>
+                <div>
+                    <label for="ln">Lastname</label>
+                    <input type="text" name="ln" id="ln" class="ln" placeholder="Enter your last Name">
+                </div>
+                <div>
+                    <label for="em">E-mail</label>
+                    <input type="text" name="em" id="em" class="em" placeholder="Enter your E-mail">
+                </div>
+
+                <div>
+                    <label for="em">Phone No.</label>
+                    <input type="text" name="" id="pn" class="pn" placeholder="Enter your Phone No.">
+                </div>
+
+
+                <!-- <label for="gender">Gender</label>
+                <div style="display:flex ; gap: 20px;" >
+                    
+                    <div style="display: flex; text-align: center;" >
+                        <label for="">Male</label>
+                        <input type="radio" name="g">
+                    </div> 
+                    <div style="display: flex;">
+                        <label for="">Female</label>
+                        <input type="radio" name="g">
+                    </div>
+                </div> -->
+
+
+                <label for="">Gender</label>
+                <div id="lable2">
+                    <div style="display: flex; text-align: center;">
+                        <label for="male" style="color: #FFF;">Male</label>
+                        <input type="radio" name="gender" id="male" value="Male">
+                    </div>
+                    <div style="display: flex;">
+                        <label for="female" style="color:#FFF ;">Female</label>
+                        <input type="radio" name="gender" id="female" value="Female">
+                    </div>
+                </div>
+
+
+
+
+
+                <div>
+                    <label for="date">Date OF Appointment</label>
+                    <input type="date" name="date" id="date" class="date">
+                </div>
+                <div>
+                    <label for="textarea">Your History</label>
+                    <textarea name="" id="textarea" cols="60" rows="10" placeholder="Enter your text here"
+                        style="width: 492px; height: 148px;"></textarea>
+                </div>
+
+                <div id="btns">
+                    <button id="btn5" class="btn5">Submit</button>
+                    <button id="btn4" class="btn5">Clear Input field</button>
+                </div>
+            </div>
+        </div>
+        <ul>
+            <div id="display">
+                <div id="logo2"><img src="./2210.png" alt="" id="logo3"></div>
+                <div id="result-container-wrapper" style="overflow-y: scroll; max-height: 630px; overflow-x: hidden;"></div>
+            </div>
+
+        </ul>
+    </div>
+
+    <script>
+        
+        $(document).ready(function () {
+    $('#btn5').click(function () {
+        var firstName = $('#fn').val();
+        var lastName = $('#ln').val();
+        var email = $('#em').val();
+        var appointmentDate = $('#date').val();
+        var textareaValue = $('#textarea').val();
+        var gender = $("input[name='gender']:checked").val();
+
+        var resultContainer = $('<div class="result-container"></div>');
+
+        var resultMessage =
+            '<div class="result">' +
+            '<p>First Name: ' + firstName + '</p>' +
+            '<p>Last Name: ' + lastName + '</p>' +
+            '<p>Email: ' + email + '</p>' +
+            '<p>Gender: ' + gender + '</p>' +
+            '<p>Appointment Date: ' + appointmentDate + '</p>' +
+            '<p>Your History: ' + textareaValue + '</p>' +
+            '</div>';
+
+        resultContainer.append(resultMessage);
+
+        $('#result-container-wrapper').append(resultContainer);
+    });
+});
+
+
+
+
+
+
+
+        $(document).ready(function () {
+            $('.btn5').click(function () {
+                $("#ln").val('');
+                $("#fn").val('');
+                $("#em").val('');
+                $("#date").val('');
+                $("#pn").val('');
+                $("#pn").val('');
+                $("input[name='gender']").prop('checked', false);
+                $("#textarea").val('');
+            })
+        })
+
+    </script>
+
+
+</body>
+
+</html>
